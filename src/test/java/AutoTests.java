@@ -1,3 +1,4 @@
+import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -11,6 +12,9 @@ import java.util.concurrent.TimeUnit;
 public class AutoTests {
 
     static WebDriver driver;
+    String email = "loremIpsum12349@yopmail.com";
+    String password = "qwerty123";
+
     @Before
     public void setUp(){
         System.setProperty("webdriver.chrome.driver", "C:\\Work\\Testing\\Java\\Automation\\FirstProject\\drivers\\chromedriver.exe");
@@ -21,11 +25,22 @@ public class AutoTests {
     }
 
     @Test
-    public void methodForMainPage(){
+    public void createNewAccountTest(){
+
         MainPage mainPage = PageFactory.initElements(driver,MainPage.class);
         CreateNewAccountPage newUserPage = PageFactory.initElements(driver,CreateNewAccountPage.class);
-        mainPage.hoverMouseAndGoToSignUpPage();
-        newUserPage.registerNewUser("test","testgot123sdsdqwe12@email.com","123456","123456");
+        mainPage.openCreateNewUserPage();
+        newUserPage.registerNewUser("testuser",email,password,"qwerty123");
+        Assert.assertEquals("Hello, testuser", newUserPage.getUserNameText());
+
+
+    }
+    @Test
+    public void signInTest(){
+        MainPage mainPage = PageFactory.initElements(driver,MainPage.class);
+        SignInPage signIn = PageFactory.initElements(driver, SignInPage.class);
+        mainPage.openSignInPage();
+        signIn.login(email,password);
 
 
 
