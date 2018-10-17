@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b664c31-8b0b-4182-8985-d170b948d7b6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/PageObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/pages/SignInPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateNewAccountPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CreateNewAccountPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MainPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SignInPage.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/AutoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/AutoTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/CreateNewAccountPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MainPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/SignInPage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/AutoTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/AutoTests.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -37,14 +28,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="12" />
-          <entry key="java" value="4271" />
+          <entry key="java" value="4371" />
           <entry key="txt" value="17" />
           <entry key="xml" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="4271" />
+          <entry key="JAVA" value="4371" />
           <entry key="PLAIN_TEXT" value="29" />
           <entry key="XML" value="20" />
         </counts>
@@ -126,8 +117,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/AutoTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+            <state relative-caret-position="663">
+              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2753#2754#0" expanded="true" />
@@ -235,14 +226,6 @@
               <item name="test" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Demo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Demo" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -253,7 +236,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539784033219" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539786727210" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../JavaLearning" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -276,11 +259,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AutoTests.homePageelementscheck">
+  <component name="RunManager" selected="JUnit.AutoTests.homePageElementscheck">
     <configuration name="AutoTests.createNewAccountTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Demo" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AutoTests" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AutoTests" />
       <option name="METHOD_NAME" value="createNewAccountTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -289,9 +272,19 @@
     </configuration>
     <configuration name="AutoTests.errorMessagesCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Demo" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AutoTests" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AutoTests" />
       <option name="METHOD_NAME" value="errorMessagesCheck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AutoTests.homePageElementscheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Demo" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AutoTests" />
+      <option name="METHOD_NAME" value="homePageElementscheck" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -299,19 +292,9 @@
     </configuration>
     <configuration name="AutoTests.homePageelementscheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Demo" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AutoTests" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AutoTests" />
       <option name="METHOD_NAME" value="homePageelementscheck" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AutoTests.methodForMainPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Demo" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AutoTests" />
-      <option name="METHOD_NAME" value="methodForMainPage" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -319,8 +302,8 @@
     </configuration>
     <configuration name="AutoTests.signInTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Demo" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="AutoTests" />
+      <option name="PACKAGE_NAME" value="tests" />
+      <option name="MAIN_CLASS_NAME" value="tests.AutoTests" />
       <option name="METHOD_NAME" value="signInTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -328,19 +311,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AutoTests.methodForMainPage" />
       <item itemvalue="JUnit.AutoTests.createNewAccountTest" />
       <item itemvalue="JUnit.AutoTests.signInTest" />
       <item itemvalue="JUnit.AutoTests.errorMessagesCheck" />
       <item itemvalue="JUnit.AutoTests.homePageelementscheck" />
+      <item itemvalue="JUnit.AutoTests.homePageElementscheck" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AutoTests.homePageElementscheck" />
         <item itemvalue="JUnit.AutoTests.homePageelementscheck" />
         <item itemvalue="JUnit.AutoTests.errorMessagesCheck" />
         <item itemvalue="JUnit.AutoTests.signInTest" />
         <item itemvalue="JUnit.AutoTests.createNewAccountTest" />
-        <item itemvalue="JUnit.AutoTests.methodForMainPage" />
       </list>
     </recent_temporary>
   </component>
@@ -357,7 +340,7 @@
       <workItem from="1539269024191" duration="2354000" />
       <workItem from="1539345160135" duration="10089000" />
       <workItem from="1539684127748" duration="8231000" />
-      <workItem from="1539775352762" duration="7990000" />
+      <workItem from="1539775352762" duration="10566000" />
     </task>
     <task id="LOCAL-00001" summary="second commit">
       <created>1539703570372</created>
@@ -370,9 +353,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AutoTests_signInTest - 2018.10.17 at 14h 21m 57s.xml">
-      <configuration name="AutoTests.signInTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="AutoTests_errorMessagesCheck - 2018.10.17 at 14h 38m 06s.xml">
       <configuration name="AutoTests.errorMessagesCheck" configurationId="JUnit" />
     </history-entry>
@@ -400,9 +380,12 @@
     <history-entry file="AutoTests_homePageelementscheck - 2018.10.17 at 15h 45m 28s.xml">
       <configuration name="AutoTests.homePageelementscheck" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="AutoTests_homePageElementscheck - 2018.10.17 at 16h 08m 58s.xml">
+      <configuration name="AutoTests.homePageElementscheck" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28664000" />
+    <option name="totallyTimeSpent" value="31240000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,9 +398,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918962" visible="true" weight="0.25799572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918962" visible="true" weight="0.25799572" />
       <window_info id="Structure" order="1" sideWeight="0.5008104" side_tool="true" weight="0.25266525" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -426,7 +408,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -530,8 +512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/AutoTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="30" column="46" lean-forward="true" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+        <state relative-caret-position="663">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2753#2754#0" expanded="true" />

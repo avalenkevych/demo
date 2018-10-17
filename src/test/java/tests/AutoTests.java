@@ -1,17 +1,18 @@
+package tests;
+
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CreateNewAccountPage;
 import pages.MainPage;
 import pages.SignInPage;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class AutoTests {
 
@@ -20,6 +21,7 @@ public class AutoTests {
     String email = "loremIpsum123491221@yopmail.com";
     String password = "qwerty123";
     String repassword = "qwerty123";
+    CreateNewAccountPage NewUser;
 
 
     @Before
@@ -32,11 +34,13 @@ public class AutoTests {
     }
 
     @Test
-    public void homePageelementscheck(){
+    public void homePageElementscheck(){
         MainPage homePage = new MainPage(driver);
         homePage.footerPresence();
         homePage.navigationPresence();
-        Assert.assertEquals("Amazon", homePage.getdLogoText());
+        //Assert.assertEquals("Amazon", homePage.getdLogoText());
+        //alternative variant
+        assertTrue(homePage.getdLogoText().equals("Amazon"));
 
         /*List <WebElement> listbox = driver.findElements(By.xpath("//select[@id='searchDropdownBox']/option[contains(@value,'search-alias')]"));
         System.out.println(listbox.size());
