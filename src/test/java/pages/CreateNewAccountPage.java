@@ -1,15 +1,18 @@
+package pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class CreateNewAccountPage {
-    WebDriver driver;
+public class CreateNewAccountPage extends PageObject {
+    //WebDriver driver;
+
 
     public CreateNewAccountPage(WebDriver driver){
-        this.driver = driver;
+        super(driver);
     }
-    @FindBy(xpath = "//h1[@class='a-spacing-small']")
-    private WebElement headingCreateAccount;
+    @FindBy(xpath = "//a[@id='nav-link-accountList']//span[@class='nav-line-1']")
+    private WebElement headingForUsername;
 
     @FindBy(xpath = "//input[@id='ap_customer_name']")
     private WebElement userNameField;
@@ -28,6 +31,8 @@ public class CreateNewAccountPage {
 
     @FindBy(xpath = "//*[@id='hud-customer-name']/div/a")
     private WebElement customerName;
+
+
 
     private void typeUserName(String username){
         userNameField.sendKeys(username);
@@ -50,13 +55,17 @@ public class CreateNewAccountPage {
     }
 
 
-    public void registerNewUser (String username, String email, String password, String repassword){
+    public void newUser (String username, String email, String password, String repassword){
         typeUserName(username);
         typeUserEmail(email);
         typeUserPass(password);
         typeReEnterPass(repassword);
         clickOnCreateBitton();
 
+    }
+
+    public String getUserNameText(){
+        return headingForUsername.getText();
     }
 
 

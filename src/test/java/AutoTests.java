@@ -1,19 +1,26 @@
-import com.sun.org.apache.xalan.internal.xsltc.dom.SimpleResultTreeImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
+import pages.CreateNewAccountPage;
+import pages.MainPage;
+import pages.SignInPage;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class AutoTests {
 
     static WebDriver driver;
-    String email = "loremIpsum12349@yopmail.com";
+    String username = "lorem";
+    String email = "loremIpsum123491221@yopmail.com";
     String password = "qwerty123";
+    String repassword = "qwerty123";
+
 
     @Before
     public void setUp(){
@@ -25,25 +32,50 @@ public class AutoTests {
     }
 
     @Test
+    public void homePageelementscheck(){
+        MainPage homePage = new MainPage(driver);
+        homePage.footerPresence();
+        homePage.navigationPresence();
+        Assert.assertEquals("Amazon", homePage.getdLogoText());
+
+        /*List <WebElement> listbox = driver.findElements(By.xpath("//select[@id='searchDropdownBox']/option[contains(@value,'search-alias')]"));
+        System.out.println(listbox.size());
+        if (listbox.size()==50) System.out.println("Pass");
+        else System.out.println("Fail");*/
+    }
+
+    @Test
     public void createNewAccountTest(){
 
-        MainPage mainPage = PageFactory.initElements(driver,MainPage.class);
-        CreateNewAccountPage newUserPage = PageFactory.initElements(driver,CreateNewAccountPage.class);
-        mainPage.openCreateNewUserPage();
-        newUserPage.registerNewUser("testuser",email,password,"qwerty123");
-        Assert.assertEquals("Hello, testuser", newUserPage.getUserNameText());
+        MainPage homePage = new MainPage(driver);
+            homePage.openCreateNewUserPage();
 
-
+        CreateNewAccountPage register = new CreateNewAccountPage(driver);
+            register.newUser(username,email,password,repassword);
+            Assert.assertEquals("Hello, "+ username, register.getUserNameText());
     }
     @Test
     public void signInTest(){
-        MainPage mainPage = PageFactory.initElements(driver,MainPage.class);
-        SignInPage signIn = PageFactory.initElements(driver, SignInPage.class);
-        mainPage.openSignInPage();
-        signIn.login(email,password);
 
+        MainPage homePage = new MainPage(driver);
+            homePage.openSignInPage();
 
+        SignInPage signIn = new SignInPage(driver);
+            signIn.login(email,password);
 
+        CreateNewAccountPage heading = new CreateNewAccountPage(driver);
+            Assert.assertEquals("Hello, "+ username, heading.getUserNameText());
+    }
+
+    @Test
+    public void errorMessagesCheck(){
+        MainPage homePage = new MainPage(driver);
+            homePage.openSignInPage();
+
+        SignInPage signIn = new SignInPage(driver);
+            signIn.getErrorMessages();
+            Assert.assertEquals("Enter your email or mobile phone number",signIn.getEmailError());
+            Assert.assertEquals("Enter your password",signIn.getPassError());
     }
 
     @After
