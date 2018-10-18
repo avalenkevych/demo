@@ -4,10 +4,12 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import pages.CreateNewAccountPage;
 import pages.MainPage;
+import pages.SearchPage;
 import pages.SignInPage;
 
 import java.util.concurrent.TimeUnit;
@@ -81,6 +83,19 @@ public class AutoTests {
             Assert.assertEquals("Enter your email or mobile phone number",signIn.getEmailError());
             Assert.assertEquals("Enter your password",signIn.getPassError());
     }
+
+    @Test
+    public void searchCheck(){
+
+        MainPage homePage = new MainPage(driver);
+            homePage.setSearchText("washing machine");
+
+        SearchPage searchPage = new SearchPage(driver);
+            searchPage.setCheckbox();
+            searchPage.getCheckbox();
+    }
+
+
 
     @After
     public void tearDown(){

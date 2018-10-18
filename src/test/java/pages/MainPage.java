@@ -1,9 +1,13 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import java.security.Key;
 
 
 public class MainPage extends PageObject {
@@ -29,8 +33,9 @@ public class MainPage extends PageObject {
     @FindBy(xpath = "//div[@id='nav-xshop-container']")
     private WebElement navigationBar;
 
-    @FindBy (xpath = "//input[@id='twotabsearchtextbox']")
-    private WebElement searchTextBox;
+
+
+
 
 
 
@@ -63,6 +68,11 @@ public class MainPage extends PageObject {
         signInBtn.click();
 
     }
+    public void setSearchText(String text){
+        this.searchField.sendKeys(text);
+        this.searchField.sendKeys(Keys.ENTER);
+    }
+
 
 
 
