@@ -29,43 +29,48 @@ public class CreateNewAccountPage extends PageObject {
     @FindBy(xpath = "//*[@id='continue']")
     private WebElement createYourAmazonAccountButton;
 
-    @FindBy(xpath = "//*[@id='hud-customer-name']/div/a")
-    private WebElement customerName;
+    @FindBy(xpath = "//div[@data-card-identifier='Addresses']//h2")
+    private WebElement addressLink;
 
 
 
     private void typeUserName(String username){
-        userNameField.sendKeys(username);
+        this.userNameField.sendKeys(username);
     }
 
     private void typeUserEmail(String email){
-        emailField.sendKeys(email);
+        this.emailField.sendKeys(email);
     }
 
     private void typeUserPass (String password){
-        passwordField.sendKeys(password);
+        this.passwordField.sendKeys(password);
     }
 
     private void typeReEnterPass (String repassword){
-        passwordCheckField.sendKeys(repassword);
+        this.passwordCheckField.sendKeys(repassword);
     }
 
-    private void clickOnCreateBitton(){
-        createYourAmazonAccountButton.click();
+    private void clickOnCreateButton(){
+        this.createYourAmazonAccountButton.click();
     }
 
 
     public void newUser (String username, String email, String password, String repassword){
-        typeUserName(username);
-        typeUserEmail(email);
-        typeUserPass(password);
-        typeReEnterPass(repassword);
-        clickOnCreateBitton();
+        this.typeUserName(username);
+        this.typeUserEmail(email);
+        this.typeUserPass(password);
+        this.typeReEnterPass(repassword);
+        this.clickOnCreateButton();
 
     }
 
     public String getUserNameText(){
-        return headingForUsername.getText();
+        return this.headingForUsername.getText();
+    }
+
+    public AddressPage clickOnAddressLink(){
+        this.addressLink.click();
+        return new AddressPage(driver);
     }
 
 

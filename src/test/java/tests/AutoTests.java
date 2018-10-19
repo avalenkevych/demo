@@ -4,14 +4,13 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.Keys;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CreateNewAccountPage;
-import pages.MainPage;
-import pages.SearchPage;
-import pages.SignInPage;
+import pages.*;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -23,7 +22,7 @@ public class AutoTests {
     String email = "loremIpsum123491221@yopmail.com";
     String password = "qwerty123";
     String repassword = "qwerty123";
-    CreateNewAccountPage NewUser;
+
 
 
     @Before
@@ -61,7 +60,7 @@ public class AutoTests {
             Assert.assertEquals("Hello, "+ username, register.getUserNameText());
     }
     @Test
-    public void signInTest(){
+    public void  signInTest() throws InterruptedException {
 
         MainPage homePage = new MainPage(driver);
             homePage.openSignInPage();
@@ -71,7 +70,36 @@ public class AutoTests {
 
         CreateNewAccountPage heading = new CreateNewAccountPage(driver);
             Assert.assertEquals("Hello, "+ username, heading.getUserNameText());
+
+            driver.findElement(By.xpath("//*[@id='nav-link-accountList']/span[1]")).click();
+
+
+            heading.clickOnAddressLink();
+        AddressPage addressPage = new AddressPage(driver);
+        addressPage.clickOnAddressIcon();
+
+        driver.findElement(By.xpath("//span[@data-action='a-dropdown-button']")).click();
+
+        List<WebElement> listOfCountries = driver.findElements(By.xpath("//div[@class='a-popover-wrapper']/div/ul/li"));
+        for (int i=0; i < listOfCountries.size();i++)
+        {
+            if (listOfCountries.get(i).getText().equalsIgnoreCase("Ukraine"))
+            {
+                listOfCountries.get(i).click();
+                break;
+            }
+
+}
+
+        Thread.sleep(5000);
+
+
+
+
+
     }
+
+
 
     @Test
     public void errorMessagesCheck(){
