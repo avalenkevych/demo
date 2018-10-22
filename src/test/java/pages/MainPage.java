@@ -33,11 +33,8 @@ public class MainPage extends PageObject {
     @FindBy(xpath = "//div[@id='nav-xshop-container']")
     private WebElement navigationBar;
 
-
-
-
-
-
+    @FindBy(xpath = "//*[@id='nav-link-accountList']/span[1]")
+    private WebElement navigationItem;
 
     public MainPage(WebDriver driver) {
         super( driver);
@@ -71,6 +68,9 @@ public class MainPage extends PageObject {
     public void setSearchText(String text){
         this.searchField.sendKeys(text);
         this.searchField.sendKeys(Keys.ENTER);
+    }
+    public void goToUserPage(){
+        this.navigationItem.click();
     }
 
 

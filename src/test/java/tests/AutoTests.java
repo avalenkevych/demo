@@ -71,32 +71,6 @@ public class AutoTests {
         CreateNewAccountPage heading = new CreateNewAccountPage(driver);
             Assert.assertEquals("Hello, "+ username, heading.getUserNameText());
 
-            driver.findElement(By.xpath("//*[@id='nav-link-accountList']/span[1]")).click();
-
-
-            heading.clickOnAddressLink();
-        AddressPage addressPage = new AddressPage(driver);
-        addressPage.clickOnAddressIcon();
-
-        driver.findElement(By.xpath("//span[@data-action='a-dropdown-button']")).click();
-
-        List<WebElement> listOfCountries = driver.findElements(By.xpath("//div[@class='a-popover-wrapper']/div/ul/li"));
-        for (int i=0; i < listOfCountries.size();i++)
-        {
-            if (listOfCountries.get(i).getText().equalsIgnoreCase("Ukraine"))
-            {
-                listOfCountries.get(i).click();
-                break;
-            }
-
-}
-
-        Thread.sleep(5000);
-
-
-
-
-
     }
 
 

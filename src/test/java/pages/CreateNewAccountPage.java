@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class CreateNewAccountPage extends PageObject {
-    //WebDriver driver;
 
 
     public CreateNewAccountPage(WebDriver driver){
@@ -33,7 +32,6 @@ public class CreateNewAccountPage extends PageObject {
     private WebElement addressLink;
 
 
-
     private void typeUserName(String username){
         this.userNameField.sendKeys(username);
     }
@@ -54,20 +52,17 @@ public class CreateNewAccountPage extends PageObject {
         this.createYourAmazonAccountButton.click();
     }
 
-
     public void newUser (String username, String email, String password, String repassword){
         this.typeUserName(username);
         this.typeUserEmail(email);
         this.typeUserPass(password);
         this.typeReEnterPass(repassword);
         this.clickOnCreateButton();
-
     }
 
     public String getUserNameText(){
         return this.headingForUsername.getText();
     }
-
     public AddressPage clickOnAddressLink(){
         this.addressLink.click();
         return new AddressPage(driver);

@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -45,6 +47,11 @@ public class AddressPage extends PageObject {
     @FindBy (xpath = "//div[@class='a-alert-content']")
     private WebElement errorMessages;
 
+    @FindBy (xpath = "//span[@data-action='a-dropdown-button']/span")
+    private WebElement dropDownButton;
+    @FindBy(xpath = "//*[@class='a-alert-heading']")
+    private WebElement successHeading;
+
 
 
     public  AddressPage (WebDriver driver){
@@ -83,6 +90,7 @@ public class AddressPage extends PageObject {
     public void clickOnAddAddressBtn(){
         this.addAddressButton.click();
     }
+    public void clickOnDropDown(){this.dropDownButton.click();}
     public void addNewAddress(String fullName, String street1, String street2, String city, String state, String zipcode, String phone ){
         this.typeFullNameField(fullName);
         this.typeStreetAddressField1(street1);
@@ -91,6 +99,26 @@ public class AddressPage extends PageObject {
         this.typeStateField(state);
         this.typeZipCodeField(zipcode);
         this.typePhoneNumberField(phone);
+    }
+
+    public void selectCountry(){
+        List<WebElement> listOfCountries = driver.findElements(By.xpath("//div[@class='a-popover-wrapper']/div/ul/li"));
+        for (int i=0; i < listOfCountries.size();i++)
+        {
+            if (listOfCountries.get(i).getText().equalsIgnoreCase("Ukraine"))
+            {
+                listOfCountries.get(i).click();
+                break;
+            }
+        }
+    }
+
+    public void waitInvisibilitiOfDropDown(){
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(By.xpath("//div[@class='a-popover-wrapper']/div/ul/li"))));
+    }
+    public String getSuccessHeadingForAddressCreation(){
+        return successHeading.getText();
     }
 
 
