@@ -10,13 +10,10 @@ import pages.AddressPage;
 import pages.CreateNewAccountPage;
 import pages.MainPage;
 import pages.SignInPage;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.junit.Assert.assertThat;
 
 public class AddressesCheck {
@@ -52,7 +49,6 @@ public class AddressesCheck {
             addressPage.addNewAddress("QQQq123werty","qwer123ty123", "asd23asd","Chi2cago", "IL", "60504","123456789");
             addressPage.clickOnAddAddressBtn();
             Assert.assertEquals("Address saved", addressPage.getSuccessHeadingForAddressCreation());
-
     }
 
     @Test

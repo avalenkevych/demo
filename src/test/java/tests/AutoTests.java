@@ -4,49 +4,52 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import pages.CreateNewAccountPage;
-import pages.MainPage;
-import pages.SearchPage;
-import pages.SignInPage;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestExecutionListeners;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.support.DependencyInjectionTestExecutionListener;
+import pages.*;
 
-import java.util.concurrent.TimeUnit;
+import javax.inject.Inject;
+import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class AutoTests {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = WebDriverConfig.class)
+@TestExecutionListeners(listeners = {ScreenshotOnFailure.class, DependencyInjectionTestExecutionListener.class})
 
-    static WebDriver driver;
+public class AutoTests {
+    @Inject
+    private WebDriver driver;
+    @Inject
+    private URL baseUrl;
+
+
     String username = "lorem";
     String email = "loremIpsum123491221@yopmail.com";
     String password = "qwerty123";
     String repassword = "qwerty123";
 
-
-
     @Before
     public void setUp(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Work\\Testing\\Java\\Automation\\FirstProject\\drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        driver.get("https://www.amazon.com/");
+
+        //driver.manage().window().maximize();
+       // driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.get(baseUrl + "/home");
     }
 
     @Test
-    public void homePageElementscheck(){
+    public void homePageElementscheck() throws Exception{
         MainPage homePage = new MainPage(driver);
         homePage.footerPresence();
         homePage.navigationPresence();
-        //Assert.assertEquals("Amazon", homePage.getdLogoText());
-        //alternative variant
+
         assertTrue(homePage.getdLogoText().equals("Amazon"));
 
-        /*List <WebElement> listbox = driver.findElements(By.xpath("//select[@id='searchDropdownBox']/option[contains(@value,'search-alias')]"));
-        System.out.println(listbox.size());
-        if (listbox.size()==50) System.out.println("Pass");
-        else System.out.println("Fail");*/
+
     }
 
     @Test
@@ -60,7 +63,7 @@ public class AutoTests {
             Assert.assertEquals("Hello, "+ username, register.getUserNameText());
     }
     @Test
-    public void  signInTest() throws InterruptedException {
+    public void  signInTest()  {
 
         MainPage homePage = new MainPage(driver);
             homePage.openSignInPage();
@@ -70,9 +73,7 @@ public class AutoTests {
 
         CreateNewAccountPage heading = new CreateNewAccountPage(driver);
             Assert.assertEquals("Hello, "+ username, heading.getUserNameText());
-
     }
-
 
 
     @Test
@@ -96,6 +97,10 @@ public class AutoTests {
             searchPage.setCheckbox();
             searchPage.getCheckbox();
     }
+
+
+
+
 
 
 

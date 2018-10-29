@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 public class CreateNewAccountPage extends PageObject {
 
 
+
     public CreateNewAccountPage(WebDriver driver){
         super(driver);
     }

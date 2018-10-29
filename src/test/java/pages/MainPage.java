@@ -44,7 +44,7 @@ public class MainPage extends PageObject {
         return logo.getText();
 
     }
-    //this shit need to do
+
     public Boolean footerPresence(){
         return footer.isDisplayed();
     }
@@ -59,7 +59,7 @@ public class MainPage extends PageObject {
         return new pages.SignInPage(driver);
     }
     public void openSignInPage(){
-        //signInBtn.isDisplayed();
+
         Actions actions = new Actions(driver);
         actions.moveToElement(signInButton).build().perform();
         signInBtn.click();
