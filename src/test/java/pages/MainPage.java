@@ -40,7 +40,7 @@ public class MainPage extends PageObject {
         super( driver);
     }
 
-    public String getdLogoText(){
+    public String getLogoText(){
         return logo.getText();
 
     }
@@ -56,7 +56,7 @@ public class MainPage extends PageObject {
         Actions actions = new Actions(driver);
         actions.moveToElement(signInButton).build().perform();
         startHereButton.click();
-        return new pages.SignInPage(driver);
+        return null;
     }
     public void openSignInPage(){
 

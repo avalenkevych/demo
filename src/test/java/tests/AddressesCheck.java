@@ -4,19 +4,21 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.AddressPage;
-import pages.CreateNewAccountPage;
-import pages.MainPage;
-import pages.SignInPage;
+import pages.*;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Supplier;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class AddressesCheck {
+public class AddressesCheck  {
 
     static WebDriver driver;
     String email = "loremIpsum123491221@yopmail.com";
@@ -36,8 +38,8 @@ public class AddressesCheck {
     public void addNewAddress()  {
         MainPage homePage = new MainPage(driver);
             homePage.openSignInPage();
-        SignInPage signIn = new SignInPage(driver);
-            signIn.login(email,password);
+       // SignInPage signIn = new SignInPage(driver);
+          //  signIn.login(email,password);
         CreateNewAccountPage heading = new CreateNewAccountPage(driver);
             homePage.goToUserPage();
             heading.clickOnAddressLink();
@@ -46,6 +48,10 @@ public class AddressesCheck {
             addressPage.clickOnDropDown();
             addressPage.selectCountry();
             addressPage.waitInvisibilityOfDropDown();
+
+
+
+
             addressPage.addNewAddress("QQQq123werty","qwer123ty123", "asd23asd","Chi2cago", "IL", "60504","123456789");
             addressPage.clickOnAddAddressBtn();
             Assert.assertEquals("Address saved", addressPage.getSuccessHeadingForAddressCreation());
@@ -55,8 +61,8 @@ public class AddressesCheck {
     public void checkErrorMessages(){
         MainPage homePage = new MainPage(driver);
         homePage.openSignInPage();
-        SignInPage signIn = new SignInPage(driver);
-        signIn.login(email,password);
+       // SignInPage signIn = new SignInPage(driver);
+       // signIn.login(email,password);
         CreateNewAccountPage heading = new CreateNewAccountPage(driver);
         homePage.goToUserPage();
         heading.clickOnAddressLink();

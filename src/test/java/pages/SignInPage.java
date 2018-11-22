@@ -30,6 +30,8 @@ public class SignInPage extends PageObject {
         super(driver);
     }
 
+
+
     public void login(String email , String password){
        userEmail.sendKeys(email);
       // continueButton.click();

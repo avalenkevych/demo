@@ -1,16 +1,26 @@
 package pages;
 
+import org.littleshoot.proxy.HttpFiltersSource;
+import org.littleshoot.proxy.HttpProxyServer;
+import org.littleshoot.proxy.impl.DefaultHttpProxyServer;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.BrowserType;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import pages.framework.Browser;
+import pages.framework.HttpStatusCodeSupplier;
 
-import java.net.URL;
+import java.io.IOException;
+import java.net.*;
 
 @Configuration
 public class WebDriverConfig {
@@ -47,6 +57,11 @@ public class WebDriverConfig {
     public ScreenshotOnFailure screenshotOnFailure() {
         return new ScreenshotOnFailure();
     }
+    @Bean
+    public Browser browser(WebDriver driver) {
+        return new Browser(driver);
+    }
+
 
 
 }

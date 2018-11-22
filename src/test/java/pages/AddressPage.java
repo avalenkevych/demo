@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class AddressPage extends PageObject {
 
-    @FindBy(xpath="//h1[@class='a-spacing-medium']")
+    @FindBy(xpath = "//h1[@class='a-spacing-medium']")
     private WebElement heading;
 
     @FindBy(xpath = "//div[@id='ya-myab-plus-address-icon']")
@@ -46,36 +46,42 @@ public class AddressPage extends PageObject {
     @FindBy(xpath = "//span[@class='a-button-inner']/input[@type='submit']")
     private WebElement addAddressButton;
 
-    @FindBy (xpath = "//div[@class='a-alert-content']")
+    @FindBy(xpath = "//div[@class='a-alert-content']")
     private List<WebElement> errorMessages;
 
-    @FindBy (xpath = "//span[@data-action='a-dropdown-button']/span")
+    @FindBy(xpath = "//span[@data-action='a-dropdown-button']/span")
     private WebElement dropDownButton;
     @FindBy(xpath = "//*[@class='a-alert-heading']")
     private WebElement successHeading;
 
-    @FindBy (xpath = "//div[@class='a-popover-wrapper']/div/ul/li")
+    @FindBy(xpath = "//div[@class='a-popover-wrapper']/div/ul/li")
     private List<WebElement> listOfCountries;
 
 
-    public  AddressPage (WebDriver driver){
+    public AddressPage(WebDriver driver) {
         super(driver);
     }
-    public String getHeading(){
+
+    public String getHeading() {
         return this.heading.getText();
     }
-    public void clickOnAddressIcon(){
+
+    public void clickOnAddressIcon() {
         this.addressIcon.click();
     }
-    public void typeFullNameField(String fullNameField){
+
+    public void typeFullNameField(String fullNameField) {
         this.fullNameField.sendKeys(fullNameField);
     }
-    public void typeStreetAddressField1(String streetAddressField1){
+
+    public void typeStreetAddressField1(String streetAddressField1) {
         this.streetAddressField1.sendKeys(streetAddressField1);
     }
-    public void typeStreetAddressField2(String streetAddressField2){
+
+    public void typeStreetAddressField2(String streetAddressField2) {
         this.streetAddressField2.sendKeys(streetAddressField2);
     }
+
     public void typeCityField(String cityField) {
         this.cityField.sendKeys(cityField);
     }
@@ -91,11 +97,16 @@ public class AddressPage extends PageObject {
     public void typePhoneNumberField(String phoneNumberField) {
         this.phoneNumberField.sendKeys(phoneNumberField);
     }
-    public void clickOnAddAddressBtn(){
+
+    public void clickOnAddAddressBtn() {
         this.addAddressButton.click();
     }
-    public void clickOnDropDown(){this.dropDownButton.click();}
-    public void addNewAddress(String fullName, String street1, String street2, String city, String state, String zipcode, String phone ){
+
+    public void clickOnDropDown() {
+        this.dropDownButton.click();
+    }
+
+    public void addNewAddress(String fullName, String street1, String street2, String city, String state, String zipcode, String phone) {
         this.typeFullNameField(fullName);
         this.typeStreetAddressField1(street1);
         this.typeStreetAddressField2(street2);
@@ -105,12 +116,12 @@ public class AddressPage extends PageObject {
         this.typePhoneNumberField(phone);
     }
 
-    public List<String> selectCountry(){
+    public List<String> selectCountry() {
 
-        List <WebElement> countries = listOfCountries;
+        List<WebElement> countries = listOfCountries;
         countries.stream()
-                .filter(country->country.getText().equalsIgnoreCase("Ukraine"))
-                .forEach(country->country.click());
+                .filter(country -> country.getText().equalsIgnoreCase("Ukraine"))
+                .forEach(country -> country.click());
 
         return null;
 
@@ -127,28 +138,30 @@ public class AddressPage extends PageObject {
 
     }
 
-    public void waitInvisibilityOfDropDown(){
-        WebDriverWait wait = new WebDriverWait(driver,10);
+    public void waitInvisibilityOfDropDown() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(By.xpath("//div[@class='a-popover-wrapper']/div/ul/li"))));
+        //awaitElements(listOfCountries);
+
+
     }
-    public String getSuccessHeadingForAddressCreation(){
+
+
+    public String getSuccessHeadingForAddressCreation() {
         return successHeading.getText();
     }
 
-    public List<String> getErrorMessages(){
+    public List<String> getErrorMessages() {
 
         List<WebElement> errorMessages1 = errorMessages;
-        List <String> errors = errorMessages1.stream()
-                .map(l->l.getText())
-                .filter(l-> StringUtils.isNotBlank(l))
+        List<String> errors = errorMessages1.stream()
+                .map(l -> l.getText())
+                .filter(l -> StringUtils.isNotBlank(l))
                 .collect(Collectors.toList());
-         errors.forEach(System.out::println);
+        errors.forEach(System.out::println);
         return errors;
     }
-
-
-
-
-
-
 }
+
+
+
