@@ -1,26 +1,25 @@
 package tests;
 
+import automation.pages.AddressPage;
+import automation.pages.CreateNewAccountPage;
+import automation.pages.HomePage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import pages.*;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Supplier;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class AddressesCheck  {
 
-    static WebDriver driver;
+  /*  static WebDriver driver;
     String email = "loremIpsum123491221@yopmail.com";
     String password = "qwerty123";
 
@@ -36,7 +35,7 @@ public class AddressesCheck  {
     }
     @Test
     public void addNewAddress()  {
-        MainPage homePage = new MainPage(driver);
+        HomePage homePage = new HomePage(driver);
             homePage.openSignInPage();
        // SignInPage signIn = new SignInPage(driver);
           //  signIn.login(email,password);
@@ -59,7 +58,7 @@ public class AddressesCheck  {
 
     @Test
     public void checkErrorMessages(){
-        MainPage homePage = new MainPage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.openSignInPage();
        // SignInPage signIn = new SignInPage(driver);
        // signIn.login(email,password);
@@ -79,7 +78,7 @@ public class AddressesCheck  {
     @After
     public void tearDown(){
        driver.quit();
-    }
+    }*/
 
 
 }

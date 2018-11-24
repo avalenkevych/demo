@@ -1,14 +1,9 @@
 package tests;
 
-import org.junit.Assert;
-import org.junit.Test;
-import pages.MainPage;
-import pages.SignInPage;
-
 /*public class ErrorMessagesTest {
     @Test
     public void errorMessagesCheck(){
-        MainPage homePage = new MainPage(driver);
+        HomePage homePage = new HomePage(driver);
         homePage.openSignInPage();
 
         SignInPage signIn = new SignInPage(driver);
