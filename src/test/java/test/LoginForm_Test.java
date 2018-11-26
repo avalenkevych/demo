@@ -12,6 +12,7 @@ import automation.framework.WebDriverRunner;
 import javax.inject.Inject;
 import java.net.URL;
 
+import static org.junit.Assert.assertEquals;
 import static automation.locators.Xpath.BTN_SIGNIN;
 
 
@@ -37,5 +38,13 @@ public class LoginForm_Test {
         page.setLoginInformation(info);
         driver.click(BTN_SIGNIN);
 
+    }
+
+    @Test
+    public void checkLoginFormErrorMessages(){
+        LoginPage page = new LoginPage(driver);
+        driver.click(BTN_SIGNIN);
+        assertEquals("Enter your email or mobile phone number", page.getUserEmailEror());
+        assertEquals("Enter your password", page.getUserPasswordError());
     }
 }

@@ -22,14 +22,21 @@ public enum  Xpath implements Supplier<By> {
     ADDRESS_LINK("//div[@data-card-identifier='Addresses']//h2"),
     ADDRESS_ICON("//div[@id='ya-myab-plus-address-icon']"),
     UKR("//div[@class='a-popover-wrapper']/div/ul/li"),
-    DROP_DOWN("//span[@data-action='a-dropdown-button']/span"),
+    DROP_DOWN("//span[@data-action='a-dropdown-button']"),
     FULLNAME("//input[@id='address-ui-widgets-enterAddressFullName']"),
     STREET1("//input[@id='address-ui-widgets-enterAddressLine1']"),
     STREET2("//input[@id='address-ui-widgets-enterAddressLine2']"),
     CITY("//input[@id='address-ui-widgets-enterAddressCity']"),
     STATE("//input[@id='address-ui-widgets-enterAddressStateOrRegion']"),
     ZIPCODE("//input[@id='address-ui-widgets-enterAddressPostalCode']"),
-    PHONE("//input[@id='address-ui-widgets-enterAddressPhoneNumber']");
+    PHONE("//input[@id='address-ui-widgets-enterAddressPhoneNumber']"),
+    ADDRESS_SUCCESS_HEADING("//*[@class='a-alert-heading']"),
+    ADD_ADDRESS_BUTTON("//span[@class='a-button-inner']/input[@type='submit']"),
+
+
+    USER_EMAIL_ERROR("//div[@id='auth-email-missing-alert']//div[@class='a-alert-content']"),
+    USER_PASSWORD_ERROR("//div[@id='auth-password-missing-alert']//div[@class='a-alert-content']");
+
 
 
 
@@ -47,5 +54,4 @@ public enum  Xpath implements Supplier<By> {
     public String toString(){
         return by.toString();
     }
-
 }

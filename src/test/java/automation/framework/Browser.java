@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import java.util.function.Supplier;
 
+
 public class Browser extends DelegatingWebDriver {
 
     public Browser(WebDriver driver) {
@@ -16,11 +17,16 @@ public class Browser extends DelegatingWebDriver {
         element.clear();
         element.sendKeys(value.toString());
     }
+    public String getInputText(Supplier<By> by){
+        return await(by).getAttribute("value");
+    }
 
 
     public String getText(Supplier<By>by){
         final Element text = await(by);
         return  text.getText();
     }
+
+
 
 }
