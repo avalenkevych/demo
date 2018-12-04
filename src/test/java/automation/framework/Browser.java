@@ -26,7 +26,9 @@ public class Browser extends DelegatingWebDriver {
         final Element text = await(by);
         return  text.getText();
     }
+    public void setRadio(Supplier<By> by, Object value){
 
 
+    }
 
 }

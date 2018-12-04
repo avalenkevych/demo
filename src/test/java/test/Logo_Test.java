@@ -1,6 +1,8 @@
 package test;
 
 
+import automation.pages.HomePage;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import automation.framework.Browser;
@@ -21,14 +23,20 @@ public class Logo_Test {
 
     @Inject private URL baseUrl;
 
+    @Before
+    public void setUp(){
+        browser.get(baseUrl + "/");
+        browser.manage().window().maximize();
+    }
+
 
     @Test
-     public void checkAmazonLogo() throws InterruptedException {
-        browser.manage().window().maximize();
-        browser.get(baseUrl + "/");
-        String text = browser.await(LOGO).getText();
-        assertEquals("Amazon", text);
+     public void checkAmazonLogo()  {
+        assertEquals("Amazon", browser.await(LOGO).getText());
+
+
     }
+
 
 
 }

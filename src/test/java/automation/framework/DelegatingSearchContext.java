@@ -31,4 +31,5 @@ public class DelegatingSearchContext <T extends SearchContext>
     public Element findElement(Supplier<By> by) {
         return new Element(delegate.findElement(by.get()));
     }
+
 }

@@ -51,7 +51,6 @@ public class AddressPage {
         return null;*/
     }
 
-
     public void waitInvisibilityOfDropDown() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(By.xpath("//div[@class='a-popover-wrapper']/div/ul/li"))));

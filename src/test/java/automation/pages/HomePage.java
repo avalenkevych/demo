@@ -1,15 +1,18 @@
 package automation.pages;
 
+import automation.framework.Browser;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import static automation.locators.Xpath.SEARCH_BTN;
+import static automation.locators.Xpath.SEARCH_INPUT;
 
 
 public class HomePage  {
 
-    @FindBy(xpath = "//span[@class='nav-sprite nav-logo-base']")
+   /* @FindBy(xpath = "//span[@class='nav-sprite nav-logo-base']")
     private WebElement logo;
 
     @FindBy(xpath = "//div[@id='navFooter']")
@@ -31,35 +34,23 @@ public class HomePage  {
     private WebElement navigationBar;
 
     @FindBy(xpath = "//*[@id='nav-link-accountList']/span[1]")
-    private WebElement navigationItem;
+    private WebElement navigationItem;*/
 
-    /*public HomePage(WebDriver driver) {
-        super( driver);
+
+    private Browser browser;
+
+    public HomePage(Browser browser){
+        this.browser = browser;
     }
+    public void searchItem(String text){
 
-    public String getLogoText(){
-        return logo.getText();
-
-    }
-
-
-
-    public void openSignInPage(){
-
-        Actions actions = new Actions(driver);
-        actions.moveToElement(signInButton).build().perform();
-        signInBtn.click();
-
-    }
-    public void setSearchText(String text){
-        this.searchField.sendKeys(text);
-        this.searchField.sendKeys(Keys.ENTER);
-    }
-    public void goToUserPage(){
-        this.navigationItem.click();
+        browser.setInputText(SEARCH_INPUT, text);
+        browser.click(SEARCH_BTN);
+        browser.click(() ->By.partialLinkText(text));
     }
 
 
-*/
+
+
 
 }

@@ -33,9 +33,21 @@ public enum  Xpath implements Supplier<By> {
     ADDRESS_SUCCESS_HEADING("//*[@class='a-alert-heading']"),
     ADD_ADDRESS_BUTTON("//span[@class='a-button-inner']/input[@type='submit']"),
 
+    SEARCH_INPUT("//input[@id='twotabsearchtextbox']"),
+    SEARCH_BTN("//div[@class='nav-search-submit nav-sprite']/input"),
+
+
 
     USER_EMAIL_ERROR("//div[@id='auth-email-missing-alert']//div[@class='a-alert-content']"),
-    USER_PASSWORD_ERROR("//div[@id='auth-password-missing-alert']//div[@class='a-alert-content']");
+    USER_PASSWORD_ERROR("//div[@id='auth-password-missing-alert']//div[@class='a-alert-content']"),
+
+    ADD_TO_CART("//input[@value='Add to Cart']"), // adding item to card
+    PROCESS_TO_CHECKOUT_BTN("//*[contains(text(),'Proceed to checkout')]"),
+
+    DELIVER_TO_THIS_ADDRESS_BTN("//a[contains(text(),'Deliver to this address')]"),
+    CONTINUE_BTN("(//input[@value='Continue'])[1]"),
+
+    RADIO_BTN("//input[@id='order_0_ShippingSpeed_second-stg-isoa']");
 
 
 
